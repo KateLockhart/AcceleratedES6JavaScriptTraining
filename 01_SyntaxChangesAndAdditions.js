@@ -145,19 +145,19 @@ function isEqualTo(number = compare, compare = 10) {
 
 // If values are not specified within object, it will look for surrounding variable names that match object key names
 
-let name = "Kate";
-let age = 29;
+let aName = "Kate";
+let aAge = 29;
 
-let ageField = "age";
+let ageField = "aAge";
 
 let obj = {
   // Can create property names as strings
-  name: "Katelyn",
+  aName: "Katelyn",
   // Can dynamically create property names with the name stored in a variable, can reuse those variables to access those properties
   [ageField]: 28,
   // Methods can be declared within an object as well as made into strings, must be called with []
   "greet me"() {
-    console.log(this.name + " , " + this.age);
+    console.log(this.aName + " , " + this.aAge);
   },
 };
 // console.log(obj);
@@ -231,14 +231,105 @@ for (let testResult of testResults) {
 
 /*   Template Literals   */
 
+// Basically strings with added features using backticks ` `
+// Can run calculations within the ${} as long as the result returns a string
+
+let myName = "Kate";
+
+let description = `
+  Can make multiline
+  strings.
+  And use variables/variable values like ${
+    myName + "!!!"
+  } using the $ and {} syntax.
+`;
+console.log(description);
+
+// Can use the \ to escape it if needed
+let otherLiteral = `
+  Hello, I'm \${name + " the Great"}.
+`;
+console.log(otherLiteral);
+
 // -----------------------------------------------------
 
 /*   Destructuring - Arrays   */
+
+// Array destructing uses the array [] syntax on the left side of the = to make copies of the values within the original array, does not manipulate the original array. References values based on position.
+
+let nums = [1, 2, 3];
+
+let [b, c, d, e] = nums;
+
+// console.log(b); // Results in 1
+// console.log(c); // Results in 2
+// console.log(nums); // Results in [1, 2, 3] as the original array is preserved and not manipulated by destructuring
+
+// Arrays are infinite, so if pulling out an non-existent value undefined will be returned.
+// console.log(e); // Results in undefined
+
+// Can use the Rest Operator to form an array with the remaining values
+let [f, ...g] = nums;
+// console.log(g) // Results in [2, 3]
+
+// Can set default values for items that do not have available values, default will not be used if the array already has a value
+let [h = 5, i, j, k = 7] = nums;
+console.log(h); // Results in 1, will have original value provided from nums array, default is overridden
+console.log(k); // Results in 7 versus undefined because a default value was assigned
+
+// Destructuring can be used to swap variable values
+let y = 5;
+let z = 10;
+
+[z, y] = [y, z];
+console.log(y); // Results in 10
+console.log(z); // Results in 5
+
+// Can also ignore values
+let these = [1, 2, 3];
+let [m, , o] = these;
+console.log(m); // Results in 1
+console.log(o); // Results in 3
+
+// Can destructure in the declaration
+let [q, r, s] = [13, "apple", 11];
+console.log(q, r); // Results in 13 apple
+console.log(s); // Results in 11
 
 // -----------------------------------------------------
 
 /*   Destructuring - Objects   */
 
+// Object destructing is similar to that of arrays, but object syntax requires the {}. References values by the keys name, not by position like arrays.
+
+let thisObj = {
+  name: "Kate",
+  age: 29,
+  greet: function () {
+    console.log("Hello there!");
+  },
+};
+
+// Key names have to match exactly with destructuring
+// let {name, age} = thisObj;
+// console.log(name, age); // Results in Kate 29
+
+// Will not work as the destructuring isn't position based and cannot have an empty place holder to "skip" an item's value, but it can be left out by not calling the key name
+// let {name, , greet} = thisObj;
+
+// This will work
+// let {name, greet} = thisObj;
+// greet();
+
+// To rename references to the keys of an object, an alias can be used, but the alias of hello must now be used to call/run greet
+let { name, greet: hello } = thisObj;
+hello();
+
 // -----------------------------------------------------
 
 /*   Destructuring Summary   */
+
+// Allows you to destructure an array or object from complex to simple structures.
+// Does not change the original object or array
+// Object Destructuring use { } and property key names
+// Array Destructuring use [ ] and positions of the values
