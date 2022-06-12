@@ -1,6 +1,7 @@
 ## Accelerated ES6 JavaScript Training
 
 :watch: Course total instruction length: 6 hours
+
 :round_pushpin: Start date: 6/11/2022
 
 <!-- :tada: Completion date: 6/10/2022 -->
@@ -15,16 +16,16 @@ Course Summary:
 
 ### Course Topic Sections:
 
-- [] 1. Syntax Changes & Additions
-- [] 2. Modules & Classes
-- [] 3. Symbols
-- [] 4. Iterators & Generators
-- [] 5. Promises
-- [] 6. Extensions of Built-in Objects
-- [] 7. Maps & Sets
-- [] 8. The Reflect API
-- [] 9. The Proxy API
-- [] 10. Course Project
+- [ ] 1. Syntax Changes & Additions
+- [ ] 2. Modules & Classes
+- [ ] 3. Symbols
+- [ ] 4. Iterators & Generators
+- [ ] 5. Promises
+- [ ] 6. Extensions of Built-in Objects
+- [ ] 7. Maps & Sets
+- [ ] 8. The Reflect API
+- [ ] 9. The Proxy API
+- [ ] 10. Course Project
 
 ### Maximilian Schwarzmüller
 
