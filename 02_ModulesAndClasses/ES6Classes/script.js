@@ -1,5 +1,9 @@
-// Class keyword now replaces: function Person() {}
-// The class keyword just gives more flexibility when setting up the class
+/* 
+  Classes:
+  - Class keyword now replaces: function Person() {}
+  - The class keyword just gives more flexibility when setting up the class
+*/
+
 class Person {
   // Constructor is a method name reserved for ES6 to give the Person class properties, can give parameters to use argument values passed to it
   constructor(name) {
