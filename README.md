@@ -17,7 +17,7 @@ Course Summary:
 ### Course Topic Sections:
 
 - [x] 1. Syntax Changes & Additions
-- [ ] 2. Modules & Classes
+- [x] 2. Modules & Classes
 - [ ] 3. Symbols
 - [ ] 4. Iterators & Generators
 - [ ] 5. Promises
