@@ -18,7 +18,7 @@ Course Summary:
 
 - [x] 1. Syntax Changes & Additions
 - [x] 2. Modules & Classes
-- [ ] 3. Symbols
+- [x] 3. Symbols
 - [ ] 4. Iterators & Generators
 - [ ] 5. Promises
 - [ ] 6. Extensions of Built-in Objects
