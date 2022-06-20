@@ -19,7 +19,7 @@ Course Summary:
 - [x] 1. Syntax Changes & Additions
 - [x] 2. Modules & Classes
 - [x] 3. Symbols
-- [ ] 4. Iterators & Generators
+- [x] 4. Iterators & Generators
 - [ ] 5. Promises
 - [ ] 6. Extensions of Built-in Objects
 - [ ] 7. Maps & Sets
