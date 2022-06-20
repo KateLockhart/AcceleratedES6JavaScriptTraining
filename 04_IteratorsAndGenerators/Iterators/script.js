@@ -53,3 +53,31 @@ console.log(it.next()); // { value: undefined, done: true }}
 // for (let element of array) {
 //   console.log(element);
 // }
+
+/*
+    Creating a Custom, Iterable Object
+    - Customizing the ability to access object values, be sure to always include 'done' logic of the next function to keep the loop from running infinitely
+*/
+
+let person = {
+  name: "kate",
+  hobbies: ["Drawing", "Learning Japanese", "Reading"],
+  [Symbol.iterator]: function () {
+    let i = 0;
+    let hobbies = this.hobbies;
+    return {
+      next: function () {
+        let value = hobbies[i];
+        i++;
+        return {
+          done: i > hobbies.length ? true : false,
+          value: value,
+        };
+      },
+    };
+  },
+};
+
+for (let hobby of person) {
+  console.log(hobby);
+}
