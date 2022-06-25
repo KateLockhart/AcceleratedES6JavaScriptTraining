@@ -20,7 +20,7 @@ Course Summary:
 - [x] 2. Modules & Classes
 - [x] 3. Symbols
 - [x] 4. Iterators & Generators
-- [ ] 5. Promises
+- [x] 5. Promises
 - [ ] 6. Extensions of Built-in Objects
 - [ ] 7. Maps & Sets
 - [ ] 8. The Reflect API
