@@ -7,15 +7,15 @@
 
 let name = "Katelyn";
 
-// /* ---> .startsWith() <--- */
-// console.log(name.startsWith('Kate')); // True
-// console.log(name.startsWith('kate')); // False, case sensitive
-// console.log(name.startsWith('Kateee')); // False
+/* ---> .startsWith() <--- */
+console.log(name.startsWith("Kate")); // True
+console.log(name.startsWith("kate")); // False, case sensitive
+console.log(name.startsWith("Kateee")); // False
 
-// /* ---> .endsWith() <--- */
-// console.log(name.endsWith('yn')); // True
-// console.log(name.endsWith('YN')); // False, case sensitive
-// console.log(name.endsWith('nn')); // False
+/* ---> .endsWith() <--- */
+console.log(name.endsWith("yn")); // True
+console.log(name.endsWith("YN")); // False, case sensitive
+console.log(name.endsWith("nn")); // False
 
 /* ---> .includes() <--- */
 console.log(name.includes("Kate")); // True
