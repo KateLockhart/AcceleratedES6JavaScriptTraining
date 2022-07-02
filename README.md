@@ -21,7 +21,7 @@ Course Summary:
 - [x] 3. Symbols
 - [x] 4. Iterators & Generators
 - [x] 5. Promises
-- [ ] 6. Extensions of Built-in Objects
+- [x] 6. Extensions of Built-in Objects
 - [ ] 7. Maps & Sets
 - [ ] 8. The Reflect API
 - [ ] 9. The Proxy API
