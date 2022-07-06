@@ -80,6 +80,8 @@ Reflect.apply(individual.greetAgain, { name: "Justin" }, ["...Greetings"]); // .
     Methods to work with prototypes:
     - .getPrototypeOf(): preferable way to access and find prototypes 
     - .setPrototypeOf(): can change the prototype of the object
+
+    Reflect.construct(), apply(), and Prototypes Interaction
 */
 
 class Human {
@@ -100,8 +102,36 @@ console.log(Reflect.getPrototypeOf(human) === Human.prototype); // true
 // .setPrototypeOf()
 let proto = {
   age: 30,
+  greet() {
+    console.log("Hello!");
+  },
 };
 // (objectToSetPrototype, newPrototypeToSetObjTo)
 Reflect.setPrototypeOf(human, proto);
 
 console.log(Reflect.getPrototypeOf(human)); // { age: 30 }, prototype now changed to 'proto' in dev tools
+
+// Using Reflect.apply(), human can access the greet method due to us changing the prototype, in this case we can set the second param to null since we don't want/need it to reference another object
+Reflect.apply(human.greet, null, []); // Hello!
+
+/*
+    Accessing Properties with Reflect
+
+    - .get(): takes two parameters ( the object, the name of property you want to get the value of )
+    - .set():
+*/
+
+class HumanBeing {
+  constructor(name, age) {
+    this._name = name; // changing to a setter and getter
+    this.age = age;
+  }
+  get name() {
+    return this._name;
+  }
+}
+
+let humanBeing = new HumanBeing("Kate", 29);
+
+// .get()
+console.log(Reflect.get(humanBeing, "name")); // Kate, still returns name value even with getters and setters
