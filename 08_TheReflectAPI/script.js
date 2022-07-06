@@ -117,21 +117,48 @@ Reflect.apply(human.greet, null, []); // Hello!
 /*
     Accessing Properties with Reflect
 
-    - .get(): takes two parameters ( the object, the name of property you want to get the value of )
-    - .set():
+    - .get(): takes two parameters ( the object, the name of property you want to get the value of ), can still use constructor getters and setters with the get method. Can also take a receiver parameter.
+    - .set(): uses three parameters ( object, name of property, value you want to set). Can also take a receiver parameter the effect with this it refers to.
+    - .has(): checks to see if the object contains the property, to see if it exists in the object, two arguments ( object, property name ) and returns a true or false result
 */
 
 class HumanBeing {
   constructor(name, age) {
-    this._name = name; // changing to a setter and getter
+    this.name = name;
     this.age = age;
   }
-  get name() {
-    return this._name;
-  }
 }
+// If we have a getter in the constructor and both the constructor and mum had _name = then Mum would return in line 146
+let mum = {
+  name: "Mum",
+};
 
 let humanBeing = new HumanBeing("Kate", 29);
 
 // .get()
-console.log(Reflect.get(humanBeing, "name")); // Kate, still returns name value even with getters and setters
+console.log(Reflect.get(humanBeing, "name")); // Kate
+
+// .set()
+Reflect.set(humanBeing, "name", "Justin");
+
+console.log(Reflect.get(humanBeing, "name")); // Justin
+
+// Using .get() with receiver parameter
+console.log(Reflect.get(humanBeing, "name", mum)); // Justin, will still reference the constructor
+
+// Using .set() with receiver parameter
+Reflect.set(humanBeing, "name", "Justin", mum);
+
+console.log(mum); // { name: 'Justin' }, line 149 the set method is reassigning the mum name value to Justin
+
+// .has()
+console.log(Reflect.has(humanBeing, "name")); // true
+
+/*
+    Accessing Properties with Reflect.ownKeys()
+
+    .ownKeys() method is passed the object as an argument and returns all the property keys of the object
+*/
+
+// .ownKeys()
+console.log(Reflect.ownKeys(humanBeing)); // [ 'name', 'age' ]
