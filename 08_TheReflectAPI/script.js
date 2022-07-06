@@ -170,6 +170,22 @@ console.log(Reflect.ownKeys(humanBeing)); // [ 'name', 'age' ]
     - .deleteProperty(): takes two arguments of ( target object, name of property) and deletes the property and value. Clean method call versus the delete keyword previously used.
 */
 
+/*
+    Preventing Object Extensions & Wrap Up
+
+    - .preventExtensions(): takes singular argument of the target object, this method prevents any extensions or changes to 'lock' the object so it may no longer be extended.
+    - .isExtensible(): takes singular argument of the target object, this checks if the object is locked or able to be extended. Returns a true or false result. 
+*/
+
+// isExtensible()
+console.log(Reflect.isExtensible(humanBeing)); // true, currently extendable
+
+// .preventExtensions()
+Reflect.preventExtensions(humanBeing);
+
+// isExtensible()
+console.log(Reflect.isExtensible(humanBeing)); // false, due to line 184
+
 // .defineProperty(), how to add a new property
 Reflect.defineProperty(humanBeing, "hobbies", {
   writable: true,
@@ -177,18 +193,15 @@ Reflect.defineProperty(humanBeing, "hobbies", {
   // configurable: true
 });
 
-console.log(humanBeing.hobbies); // [ 'TFT', 'Programming', 'Math', 'More programming' ]
+// AFTER line 184 is added, results in *undefined*
+console.log(humanBeing.hobbies); // [ 'TFT', 'Programming', 'Math', 'More programming' ] // undefined
 
-// New property is writable as set above and can be accessed per usual and reassigned, without writable no change would take place and result of line 185 would be [ 'TFT', 'Programming', 'Math', 'More programming' ] versus an error
-humanBeing.hobbies = ["Bae", "TFT"];
+// New property is writable as set above and can be accessed per usual and reassigned, without writable no change would take place and result of line 190 would be [ 'TFT', 'Programming', 'Math', 'More programming' ] versus an error
+//humanBeing.hobbies = ["Bae", "TFT"];
 
-console.log(humanBeing.hobbies); // [ 'Bae', 'TFT' ]
+//console.log(humanBeing.hobbies); // [ 'Bae', 'TFT' ]
 
 // .deleteProperty()
-Reflect.deleteProperty(humanBeing, "age");
+// Reflect.deleteProperty(humanBeing, "age");
 
-console.log(humanBeing.age); // undefined, due to deletion above
-
-/*
-    
-*/
+//console.log(humanBeing.age); // undefined, due to deletion above
