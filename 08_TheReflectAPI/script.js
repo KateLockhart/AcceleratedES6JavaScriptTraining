@@ -73,3 +73,35 @@ Reflect.apply(individual.greet, { name: "Justin" }, []); // Hello, I am Justin!
 
 // With a method that requires an argument
 Reflect.apply(individual.greetAgain, { name: "Justin" }, ["...Greetings"]); // ...Greetings, I'm Justin!
+
+/*
+    Reflect and Prototypes
+
+    Methods to work with prototypes:
+    - .getPrototypeOf(): preferable way to access and find prototypes 
+    - .setPrototypeOf(): can change the prototype of the object
+*/
+
+class Human {
+  constructor() {
+    this.name = "Kate";
+  }
+}
+
+let human = new Human();
+
+Human.prototype.age = 29;
+
+// .getPrototypeOf()
+console.log(Reflect.getPrototypeOf(human)); // { age: 29 }, in browser console dev tools the object can be accessed and shows a constructor with name: "Human"
+
+console.log(Reflect.getPrototypeOf(human) === Human.prototype); // true
+
+// .setPrototypeOf()
+let proto = {
+  age: 30,
+};
+// (objectToSetPrototype, newPrototypeToSetObjTo)
+Reflect.setPrototypeOf(human, proto);
+
+console.log(Reflect.getPrototypeOf(human)); // { age: 30 }, prototype now changed to 'proto' in dev tools
