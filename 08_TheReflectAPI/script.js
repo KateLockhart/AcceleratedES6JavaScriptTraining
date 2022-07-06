@@ -162,3 +162,33 @@ console.log(Reflect.has(humanBeing, "name")); // true
 
 // .ownKeys()
 console.log(Reflect.ownKeys(humanBeing)); // [ 'name', 'age' ]
+
+/*
+    Creating and Deleting Properties with Reflect
+
+    - .defineProperty(): how to add and configure a new property to an existing object, takes parameters of ( target object, name of the property, JS Object used to configure the new property). By default the property is read only, but within the config object can set if it's writable as well as the configurable property which will allow for reconfiguration of the config object values and functionality, the default is false but can be hard set to true. Use MDN Docs for more info on attributes that can be used in the config object.
+    - .deleteProperty(): takes two arguments of ( target object, name of property) and deletes the property and value. Clean method call versus the delete keyword previously used.
+*/
+
+// .defineProperty(), how to add a new property
+Reflect.defineProperty(humanBeing, "hobbies", {
+  writable: true,
+  value: ["TFT", "Programming", "Math", "More programming"],
+  // configurable: true
+});
+
+console.log(humanBeing.hobbies); // [ 'TFT', 'Programming', 'Math', 'More programming' ]
+
+// New property is writable as set above and can be accessed per usual and reassigned, without writable no change would take place and result of line 185 would be [ 'TFT', 'Programming', 'Math', 'More programming' ] versus an error
+humanBeing.hobbies = ["Bae", "TFT"];
+
+console.log(humanBeing.hobbies); // [ 'Bae', 'TFT' ]
+
+// .deleteProperty()
+Reflect.deleteProperty(humanBeing, "age");
+
+console.log(humanBeing.age); // undefined, due to deletion above
+
+/*
+    
+*/
