@@ -23,7 +23,7 @@ Course Summary:
 - [x] 5. Promises
 - [x] 6. Extensions of Built-in Objects
 - [x] 7. Maps & Sets
-- [ ] 8. The Reflect API
+- [x] 8. The Reflect API
 - [ ] 9. The Proxy API
 - [ ] 10. Course Project
 
