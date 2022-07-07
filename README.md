@@ -24,7 +24,7 @@ Course Summary:
 - [x] 6. Extensions of Built-in Objects
 - [x] 7. Maps & Sets
 - [x] 8. The Reflect API
-- [ ] 9. The Proxy API
+- [x] 9. The Proxy API
 - [ ] 10. Course Project
 
 ### Maximilian Schwarzmüller
