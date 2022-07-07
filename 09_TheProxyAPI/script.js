@@ -116,3 +116,30 @@ let proxy = new Proxy(log, fnHandler);
 proxy("Hello"); // Log entry created, message: Hello
 
 proxy(10, "lol", 7); // Nothing happens for this line of code because it does not pass the proxy handler fn
+
+/*
+    Revocable Proxies
+
+    Can construct but remove and deactivate the proxy.
+
+    Constructed with Proxy.revocable(obj, handler) with arguments of the target object and the handler function. Can then use and access the revoke function to remove the proxy.
+*/
+
+let human = {
+  name: "Kate",
+};
+
+let exHandler = {
+  get: function (target, property) {
+    return Reflect.get(target, property);
+  },
+};
+
+// Declared using deconstruction to access Proxy revocable's proxy and revoke field. Does not have to be deconstructed, but it makes it even more accessible.
+let { proxy, revoke } = Proxy.revocable(human, exHandler);
+
+console.log(proxy.name); // Kate
+
+// the revoke function from line 139 being called to remove the proxy.
+revoke();
+console.log(proxy.name); // Creates error as it the proxy has been revoked
