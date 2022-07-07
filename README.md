@@ -4,7 +4,7 @@
 
 :round_pushpin: Start date: 6/11/2022
 
-<!-- :tada: Completion date: 6/10/2022 -->
+:tada: Completion date: 7/7/2022
 
 Udemy course [Accelerated ES6 JavaScript Training](https://www.udemy.com/share/101Ym43@UB6K4r9VAQ10qfLOZAXwLt9FmDT4weGHYeH5MvS3Yll0COnxY8SB6ILP_CU5NfB9pQ==/) by Maximilian Schwarzmüller.
 
@@ -25,7 +25,7 @@ Course Summary:
 - [x] 7. Maps & Sets
 - [x] 8. The Reflect API
 - [x] 9. The Proxy API
-- [ ] 10. Course Project
+- [x] 10. Course Project
 
 ### Maximilian Schwarzmüller
 
